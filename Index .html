@@ -1,0 +1,102 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/>
+<!DOCTYPE html><html lang="en">  <head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Survey Form</title>  
+    <link rel="stylesheet" href="styles.css">  
+</head>  
+<body>  
+    <div class="container">  
+        <h1>Feedback Survey</h1>  
+        <p>Please fill out this short survey to help me improve.</p><form id="surveyForm">  
+        <label for="name">Your Name *</label>  
+        <input type="text" id="name" name="name" required>  <label for="email">Email *</label>  
+    <input type="email" id="email" name="email" required>  
+
+    <label>Rate my portfolio:</label>  
+    <div class="radio-group">  
+        <label><input type="radio" name="rating" value="1"> 1</label>  
+        <label><input type="radio" name="rating" value="2"> 2</label>  
+        <label><input type="radio" name="rating" value="3"> 3</label>  
+        <label><input type="radio" name="rating" value="4"> 4</label>  
+        <label><input type="radio" name="rating" value="5"> 5</label>  
+    </div>  
+
+    <label>Which skills impressed you?</label>  
+    <div class="checkbox-group">  
+        <label><input type="checkbox" name="skills" value="HTML"> HTML</label>  
+        <label><input type="checkbox" name="skills" value="CSS"> CSS</label>  
+        <label><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label>  
+    </div>  
+
+    <label for="source">How did you find this page?</label>  
+    <select id="source" name="source">  
+        <option value="LinkedIn">LinkedIn</option>  
+        <option value="GitHub">GitHub</option>  
+        <option value="Friend">Friend</option>  
+        <option value="Other">Other</option>  
+    </select>  
+
+    <label for="comments">Additional Comments:</label>  
+    <textarea id="comments" name="comments" rows="4"></textarea>  
+
+    <button type="submit">Submit</button>  
+    <p id="successMsg" class="hidden">Thank you for your feedback!</p>  
+</form>
+
+</div>  <script src="script.js"></script>  </body>  
+</html><style>body { font-family: Arial, sans-serif; background-color: #f4f7f8; margin: 0; padding: 0; color: #333; }
+
+.container { max-width: 600px; margin: 40px auto; padding: 20px 30px; background: #ffffff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+
+h1 { margin-bottom: 10px; font-size: 24px; color: #222; border-bottom: 2px solid #3498db; padding-bottom: 5px; }
+
+label { display: block; margin-top: 15px; margin-bottom: 5px; font-weight: bold; }
+
+input[type="text"], input[type="email"], select, textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; transition: border 0.3s ease; }
+
+input:focus, textarea:focus, select:focus { border-color: #3498db; outline: none; }
+
+.radio-group, .checkbox-group { margin-bottom: 10px; }
+
+.radio-group label, .checkbox-group label { margin-right: 15px; font-weight: normal; }
+
+button { background-color: #3498db; color: white; padding: 10px 20px; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; margin-top: 10px; transition: background 0.3s ease; }
+
+button:hover { background-color: #2980b9; }
+
+.hidden { display: none; }
+
+#successMsg { color: green; margin-top: 15px; font-weight: bold; }
+
+/* styles.css */
+.hidden {
+    display: none;
+}</style><script>function surveyForm(){
+    // Get form values
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const rating = document.querySelector('input[name="rating"]:checked');
+    
+    // Email regex for simple validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Validate fields
+    if (name ===" ") {
+        alert("Please fill in your name.");
+        return;
+    }
+    if (email==" ") {
+        alert("Please fill in your email.");
+        return;
+    }
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+    if (!rating) {
+        alert("Please rate the portfolio.");
+        return;
+    }
+
+};</script>
